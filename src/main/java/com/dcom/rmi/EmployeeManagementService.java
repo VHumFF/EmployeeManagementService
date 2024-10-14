@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface EmployeeManagementService extends Remote {
-    Map.Entry<Boolean, String> createUser(String token, String email, String userType, String pwd, String name, double salary, int totalDayOfWork, int AvailablePaidLeave) throws RemoteException;
+    Map.Entry<Boolean, String> createUser(String token, String email, String userType, String pwd, String name, double salary) throws RemoteException;
     Employee retrieveEmployeeInfo(String token, int userId) throws RemoteException;
     boolean updateEmployeeAvailablePaidLeave(String token, int userId, int updatedAvailablePaidLEave) throws RemoteException;
     boolean updateEmployeeSalary(String token, int userId, int updatedSalary) throws RemoteException;

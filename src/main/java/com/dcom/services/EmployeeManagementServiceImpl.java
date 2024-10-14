@@ -26,7 +26,7 @@ public class EmployeeManagementServiceImpl extends UnicastRemoteObject implement
         super();
     }
 
-    public Map.Entry<Boolean, String> createUser(String token, String email, String userType, String pwd, String name, double salary, int totalDayOfWork, int availablePaidLeave) {
+    public Map.Entry<Boolean, String> createUser(String token, String email, String userType, String pwd, String name, double salary) {
         boolean isSuccess = false;
         String message;
 
@@ -41,6 +41,10 @@ public class EmployeeManagementServiceImpl extends UnicastRemoteObject implement
             message = "invalid request";
             return new AbstractMap.SimpleEntry<>(false, message);
         }
+
+        //predefine workdays and paidleave day
+        int totalDayOfWork = 20;
+        int availablePaidLeave = 10;
 
         Map.Entry<Boolean, String> isUserInfoValid = validateUserInfo(email, pwd, name, salary, totalDayOfWork, availablePaidLeave);
         if(!isUserInfoValid.getKey()){
