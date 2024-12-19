@@ -19,12 +19,12 @@ import java.util.regex.Pattern;
 
 public class EmployeeManagementServiceImpl extends UnicastRemoteObject implements EmployeeManagementService {
 
-    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-    private static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
-
     public EmployeeManagementServiceImpl() throws RemoteException {
         super();
     }
+
+    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@" + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+    private static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
 
     public Map.Entry<Boolean, String> createUser(String token, String email, String userType, String pwd, String name, double salary) {
         boolean isSuccess = false;
